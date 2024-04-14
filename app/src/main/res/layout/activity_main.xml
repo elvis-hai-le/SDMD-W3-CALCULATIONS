@@ -15,25 +15,40 @@
         <EditText
             android:id="@+id/number1"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autofillHints="No"
+            android:ems="3"
+            android:hint="@string/number"
+            android:inputType="number"
+            android:textColorHint="#6F7C95"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/plus"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:textSize="30sp" />
-
+            android:text="@string/plus" />
 
         <EditText
             android:id="@+id/number2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:textSize="30sp" />
+            android:autofillHints="No"
+            android:ems="3"
+            android:hint="@string/number"
+            android:inputType="number"
+            android:textColorHint="#6F7C95"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/equals"
-        android:layout_width="wrap_content"
+        android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"

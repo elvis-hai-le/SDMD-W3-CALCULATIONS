@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">W03-Calculations-2023</string>
     <string name="equals">equals</string>
+    <string name="plus">plus</string>
+    <string name="minus">minus</string>
+    <string name="number">number</string>
 </resources>
