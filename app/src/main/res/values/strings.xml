@@ -3,5 +3,6 @@
     <string name="equals">equals</string>
     <string name="plus">plus</string>
     <string name="minus">minus</string>
+    <string name="operator">operator</string>
     <string name="number">number</string>
 </resources>
