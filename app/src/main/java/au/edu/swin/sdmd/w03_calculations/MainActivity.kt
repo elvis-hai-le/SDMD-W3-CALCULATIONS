@@ -1,5 +1,6 @@
 package au.edu.swin.sdmd.w03_calculations
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,7 +26,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+        val input1 = findViewById<EditText>(R.id.number1).text.toString()
+        val input2 = findViewById<EditText>(R.id.number2).text.toString()
+        val sharedPref = this.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putString("input1",input1)
+            putString("input2",input2)
+            apply()
+        }
         Log.d("Lifecycle","onPause")
+        Log.d("Lifecycle",input1)
+        Log.d("Lifecycle",input2)
     }
 
     override fun onStop() {
@@ -51,9 +62,15 @@ class MainActivity : AppCompatActivity() {
         val number2 = findViewById<EditText>(R.id.number2)
         val answer = findViewById<TextView>(R.id.answer)
 
+        val sharedPref = this.getPreferences(Context.MODE_PRIVATE) ?: return
+        number1.setText(sharedPref.getString("input1","0"))
+        number2.setText(sharedPref.getString("input2","0"))
+
+
         savedInstanceState?.let {
             calculation = it.getInt("answer")
             answer.text = calculation.toString()
+            operator = it.getString("operator","plus")
         }
 
         val equals = findViewById<Button>(R.id.equals)
@@ -89,7 +106,9 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt("answer", calculation)
+        outState.putString("operator", operator)
         Log.i("Lifecycle","saveInstanceState $calculation")
+        Log.i("Lifecycle","saveInstanceState $operator")
     }
 
     // adds two numbers together
