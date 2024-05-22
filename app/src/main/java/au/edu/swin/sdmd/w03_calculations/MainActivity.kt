@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
         val answer = findViewById<TextView>(R.id.answer)
 
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE) ?: return
-        number1.setText(sharedPref.getString("input1","0"))
-        number2.setText(sharedPref.getString("input2","0"))
+        number1.setText(sharedPref.getString("input1",""))
+        number2.setText(sharedPref.getString("input2",""))
 
 
         savedInstanceState?.let {
